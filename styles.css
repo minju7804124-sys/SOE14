@@ -173,8 +173,8 @@ main{
 }
 
 .watch-film-link--commercial-2{
-  left:46.0%;
-  top:88.2%;
+  left:43.2%;
+  top:72.6%;
   width:11.1%;
   height:4.45%;
 }
@@ -240,9 +240,7 @@ main{
   main{ padding:calc(var(--header-h) + 12px) 8px 56px; }
   .panel{ margin-bottom:14px; }
 }
-.watch-film-link--animation-2,
-.watch-film-link--commercial-2,
-.watch-film-link--works-1{
+
   background: rgba(255, 0, 0, 0.28);
   outline: 2px solid #ff4d4d;
 }
