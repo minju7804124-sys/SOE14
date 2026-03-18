@@ -246,23 +246,4 @@ main{
   background: rgba(255, 0, 0, 0.28);
   outline: 2px solid #ff4d4d;
 }
-.watch-film-link--animation-2{
-  left:41.8%;
-  top:69.6%;
-  width:14.5%;
-  height:5.8%;
-}
 
-.watch-film-link--commercial-2{
-  left:42.0%;
-  top:75.0%;
-  width:14.5%;
-  height:5.8%;
-}
-
-.watch-film-link--works-1{
-  left:80.8%;
-  top:75.8%;
-  width:14.2%;
-  height:5.6%;
-}
