@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoE! Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div id="currentLabel" class="current-label">SoE!</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#home" data-nav="home">HOME</a>
+        <a href="#about" data-nav="about">ABOUT</a>
+        <a href="#film" data-nav="film">FILM</a>
+        <a href="#animation-1" data-nav="animation">ANIMATION</a>
+        <a href="#commercial-1" data-nav="commercial">COMMERCIAL</a>
+        <a href="#works-1" data-nav="works">WORKS</a>
+        <a href="#contact-1" data-nav="contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="panel" data-group="home">
+      <div class="panel__inner video-frame" data-video="assets/page_01.mp4" data-poster="assets/page_01.png">
+        <img src="assets/page_01.png" alt="Home visual" loading="eager" />
+      </div>
+    </section>
+
+    <section id="about" class="panel" data-group="about">
+      <div class="panel__inner video-frame" data-video="assets/page_02.mp4" data-poster="assets/page_02.png">
+        <img src="assets/page_02.png" alt="About visual" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="film" class="panel" data-group="film">
+      <div class="panel__inner video-frame" data-video="assets/page_03.mp4" data-poster="assets/page_03.png">
+        <img src="assets/page_03.png" alt="Film visual" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="animation-1" class="panel" data-group="animation">
+      <div class="panel__inner video-frame" data-video="assets/page_04.mp4" data-poster="assets/page_04.png">
+        <img src="assets/page_04.png" alt="Animation visual 1" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="animation-2" class="panel" data-group="animation">
+      <div class="panel__inner video-frame" data-video="assets/page_05.mp4" data-poster="assets/page_05.png">
+        <img src="assets/page_05.png" alt="Animation visual 2" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="commercial-1" class="panel" data-group="commercial">
+      <div class="panel__inner video-frame" data-video="assets/page_06.mp4" data-poster="assets/page_06.png">
+        <img src="assets/page_06.png" alt="Commercial visual 1" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="commercial-2" class="panel" data-group="commercial">
+      <div class="panel__inner video-frame" data-video="assets/page_07.mp4" data-poster="assets/page_07.png">
+        <img src="assets/page_07.png" alt="Commercial visual 2" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="commercial-3" class="panel" data-group="commercial">
+      <div class="panel__inner video-frame" data-video="assets/page_08.mp4" data-poster="assets/page_08.png">
+        <img src="assets/page_08.png" alt="Commercial visual 3" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="works-1" class="panel" data-group="works">
+      <div class="panel__inner video-frame" data-video="assets/page_09.mp4" data-poster="assets/page_09.png">
+        <img src="assets/page_09.png" alt="Works visual 1" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="works-2" class="panel" data-group="works">
+      <div class="panel__inner video-frame" data-video="assets/page_10.mp4" data-poster="assets/page_10.png">
+        <img src="assets/page_10.png" alt="Works visual 2" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="works-3" class="panel" data-group="works">
+      <div class="panel__inner video-frame" data-video="assets/page_11.mp4" data-poster="assets/page_11.png">
+        <img src="assets/page_11.png" alt="Works visual 3" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="works-4" class="panel" data-group="works">
+      <div class="panel__inner video-frame" data-video="assets/page_12.mp4" data-poster="assets/page_12.png">
+        <img src="assets/page_12.png" alt="Works visual 4" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="contact-1" class="panel" data-group="contact">
+      <div class="panel__inner video-frame" data-video="assets/page_13.mp4" data-poster="assets/page_13.png">
+        <img src="assets/page_13.png" alt="Contact visual 1" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="contact-2" class="panel" data-group="contact">
+      <div class="panel__inner video-frame" data-video="assets/page_14.mp4" data-poster="assets/page_14.png">
+        <img src="assets/page_14.png" alt="Contact visual 2" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
