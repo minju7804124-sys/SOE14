@@ -5,8 +5,8 @@
   --line:rgba(255,255,255,.1);
   --header-h:96px;
   --page-width:min(1440px, calc(100vw - 32px));
-  --project-crop-ratio:2.30993;
-  --project-crop-focus-y:53.5%;
+  --project-crop-ratio:2.09498;
+  --project-crop-focus-y:100%;
   --shadow:0 22px 60px rgba(0,0,0,.42);
 }
 
@@ -136,55 +136,57 @@ main{
   position:absolute;
   z-index:3;
   display:block;
+  pointer-events:auto;
+  cursor:pointer;
 }
 
 .watch-film-link--film{
   left:82.15%;
-  top:42.3%;
+  top:38.35%;
   width:11.3%;
-  height:4.9%;
+  height:4.45%;
 }
 
 .watch-film-link--animation-1{
   left:82.45%;
-  top:73.1%;
+  top:66.2%;
   width:11.1%;
-  height:4.9%;
+  height:4.45%;
 }
 
 .watch-film-link--animation-2{
   left:43.9%;
-  top:78.2%;
+  top:70.85%;
   width:11.1%;
-  height:5%;
+  height:4.55%;
 }
 
 .watch-film-link--commercial-1{
   left:43.45%;
-  top:84.4%;
+  top:76.45%;
   width:11.2%;
-  height:5%;
+  height:4.55%;
 }
 
 .watch-film-link--commercial-2{
   left:44%;
-  top:84.2%;
+  top:76.3%;
   width:11.1%;
-  height:4.9%;
+  height:4.45%;
 }
 
 .watch-film-link--commercial-3{
   left:44%;
-  top:85.1%;
+  top:77.1%;
   width:11.1%;
-  height:4.9%;
+  height:4.45%;
 }
 
 .watch-film-link--works-1{
   left:82.8%;
-  top:84.9%;
+  top:76.95%;
   width:11%;
-  height:4.8%;
+  height:4.35%;
 }
 
 .back-to-top{
