@@ -110,6 +110,8 @@ main{
 
 .panel__inner img{
   opacity:1;
+  pointer-events:none;
+  z-index:0;
 }
 
 .panel__inner.has-video img{
@@ -119,12 +121,14 @@ main{
 
 .panel__inner.video-fallback img{
   opacity:1;
-  pointer-events:auto;
+  pointer-events:none;
 }
 
 .panel__inner video{
   opacity:1;
   background:#000;
+  pointer-events:none;
+  z-index:1;
 }
 
 .panel__inner.video-fallback video{
@@ -134,7 +138,7 @@ main{
 
 .watch-film-link{
   position:absolute;
-  z-index:3;
+  z-index:20;
   display:block;
   pointer-events:auto;
   cursor:pointer;
