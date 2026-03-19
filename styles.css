@@ -2,12 +2,12 @@
   --bg:#010101;
   --panel:#060606;
   --text:#f7f2ec;
-  --line:rgba(255,255,255,.1);
+  --line:transparent;
   --header-h:96px;
   --page-width:min(1440px, calc(100vw - 32px));
   --project-crop-ratio:2.09498;
   --project-crop-focus-y:100%;
-  --shadow:0 22px 60px rgba(0,0,0,.42);
+  --shadow:none;
 }
 
 *{box-sizing:border-box}
@@ -36,10 +36,10 @@ body{
   gap:24px;
   padding:20px 28px;
   background:rgba(5,5,5,.92);
-  border-inline:1px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border:none;
+  outline:none;
   backdrop-filter:blur(8px);
-  box-shadow:var(--shadow);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
   pointer-events:auto;
 }
 
@@ -92,8 +92,9 @@ main{
   position:relative;
   aspect-ratio:var(--project-crop-ratio);
   background:var(--panel);
-  border:1px solid rgba(255,255,255,.06);
-  box-shadow:var(--shadow);
+  border:none;
+  outline:none;
+  box-shadow:none;
   overflow:hidden;
 }
 
@@ -199,7 +200,7 @@ main{
   bottom:22px;
   width:46px;
   height:46px;
-  border:1px solid rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.12);
   background:rgba(255,255,255,.06);
   color:var(--text);
   border-radius:999px;
