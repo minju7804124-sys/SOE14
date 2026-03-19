@@ -21,6 +21,10 @@ function installVideos() {
     video.muted = true;
     video.playsInline = true;
     video.preload = 'auto';
+    if (frame.dataset.loop === 'true') {
+  video.loop = true;
+  video.setAttribute('loop', '');
+}
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('preload', 'auto');
