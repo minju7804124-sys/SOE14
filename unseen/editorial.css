@@ -1,0 +1,300 @@
+/*
+ * soE! / UNSEEN — editorial balance pass
+ * Scoped to the independent /unseen/ site.
+ * Light, restrained typography and image-led compositions.
+ */
+:root{--editorial-display:'Space Grotesk','Apple SD Gothic Neo','Malgun Gothic',sans-serif;--editorial-mono:'DM Mono',ui-monospace,SFMono-Regular,Consolas,monospace}
+body:not(.home-view) .stage-top{
+  margin-bottom:clamp(30px,4.2vh,54px);
+  font-size:10px;
+  letter-spacing:.07em;
+}
+body:not(.home-view) .work-layout{
+  grid-template-columns:minmax(0,.76fr) minmax(0,1.4fr);
+  grid-template-rows:auto 1fr;
+  column-gap:clamp(30px,4.1vw,80px);
+  row-gap:clamp(20px,3vw,43px);
+  min-height:clamp(480px,61svh,740px);
+}
+body:not(.home-view) .project-heading{
+  align-self:start;
+  padding-top:clamp(9px,2.5vh,37px);
+  max-width:100%;
+}
+body:not(.home-view) #title{
+  font-family:var(--editorial-display);
+  font-size:clamp(53px,5.5vw,92px);
+  font-weight:500;
+  letter-spacing:-.078em;
+  line-height:.98;
+  text-wrap:balance;
+  overflow-wrap:normal;
+  max-width:100%;
+}
+body:not(.home-view) .project-heading h1.medium{
+  font-size:clamp(47px,4.9vw,80px);
+  line-height:1.025;
+}
+body:not(.home-view) .project-heading h1.long{
+  font-size:clamp(42px,4.35vw,69px);
+  line-height:1.045;
+}
+body:not(.home-view) .eyebrow{
+  font-family:var(--editorial-mono);
+  font-size:10px;
+  line-height:1.65;
+  letter-spacing:.08em;
+  margin-bottom:clamp(18px,2.7vh,32px);
+}
+body:not(.home-view) .project-caption{
+  align-self:end;
+  max-width:390px;
+  padding-bottom:clamp(22px,5vh,73px);
+}
+body:not(.home-view) .project-caption #caption{
+  font-size:clamp(18px,1.5vw,22px);
+  line-height:1.48;
+  letter-spacing:-.033em;
+  max-width:360px;
+}
+body:not(.home-view) .project-caption #summary{
+  font-size:13px;
+  line-height:1.85;
+  max-width:365px;
+  margin-top:17px;
+}
+body:not(.home-view) .project-credit{
+  font-size:10px;
+  line-height:1.75;
+  margin-top:20px!important;
+}
+body:not(.home-view) .screen{
+  outline:1px solid rgba(245,246,241,.11);
+  outline-offset:-1px;
+}
+body:not(.home-view) .media-column{
+  align-self:center;
+  min-width:0;
+  width:100%;
+}
+body:not(.home-view) .screen-play{
+  background:rgba(13,16,18,.35);
+  border-color:rgba(235,241,234,.55);
+  letter-spacing:.12em;
+}
+body:not(.home-view) .media-foot{
+  min-height:48px;
+}
+body:not(.home-view) .media-foot>span{
+  font-size:9px;
+  letter-spacing:.09em;
+}
+body:not(.home-view) .work-previews{
+  margin-top:24px;
+}
+body:not(.home-view) .preview-bar{
+  font:10px/1.5 var(--editorial-mono);
+  letter-spacing:.08em;
+}
+body:not(.home-view) .preview-name{
+  font-size:11px;
+  letter-spacing:-.015em;
+}
+body:not(.home-view) .preview-index{
+  font-family:var(--editorial-mono);
+}
+body:not(.home-view) .transport{
+  gap:clamp(16px,2.2vw,33px);
+}
+body:not(.home-view) #watch{
+  font-size:11px;
+  letter-spacing:.06em;
+}
+body[data-scene="divine-retribution"] #title{
+  font-size:clamp(51px,5.7vw,88px);
+  letter-spacing:-.079em;
+  line-height:1.075;
+  font-weight:600;
+  white-space:nowrap;
+  text-wrap:nowrap;
+  margin:0;
+}
+body[data-scene="echo"] #title{
+  font-weight:500;
+  letter-spacing:-.085em;
+}
+body[data-scene="a-time-for-every-star"] #title{
+  font-size:clamp(51px,5.65vw,87px);
+  letter-spacing:-.079em;
+  line-height:1.055;
+}
+body[data-scene="world-knowledge-forum"] #title{
+  font-size:clamp(44px,4.55vw,69px);
+  letter-spacing:-.078em;
+  line-height:.99;
+}
+body[data-scene="the-last-string"] #title,
+body[data-scene="high-noon-coke"] #title{
+  letter-spacing:-.085em;
+  line-height:1.015;
+}
+body:is([data-scene="sk-biopharm-01"],[data-scene="sk-biopharm-02"],[data-scene="sk-biopharm-full"]) #title{
+  font-size:clamp(50px,5.45vw,86px);
+  line-height:1.02;
+  letter-spacing:-.078em;
+}
+body.vertical-work:not(.home-view) .media-column{
+  max-width:min(100%,380px);
+  justify-self:center;
+}
+body.vertical-work:not(.home-view) .work-layout{min-height:680px}
+body.vertical-work:not(.home-view) .screen{aspect-ratio:9/16}
+body.vertical-work:not(.home-view) .work-previews{width:min(470px,100%);position:relative;left:50%;transform:translateX(-50%)}
+.contact-identity{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:9px 18px;
+  border-block:1px solid var(--line);
+  padding:22px 0 21px;
+  margin:30px 0 27px;
+}
+.contact-identity>span{
+  grid-column:1/-1;
+  color:var(--signal);
+  font:9px/1.6 var(--editorial-mono);
+  letter-spacing:.075em;
+}
+.contact-identity>strong{
+  display:block;
+  font-family:var(--editorial-display);
+  font-size:clamp(36px,5vw,63px);
+  font-weight:500;
+  letter-spacing:-.055em;
+  line-height:1.1;
+}
+.contact-identity>small{
+  font:10px/1.55 var(--editorial-mono);
+  color:var(--muted);
+  text-align:right;
+  padding-bottom:4px;
+}
+#drawer .contact-email{margin-top:30px}
+@media(min-width:761px) and (max-width:1100px){
+  body:not(.home-view) .work-layout{
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.3fr);
+    column-gap:clamp(20px,3.3vw,38px);
+  }
+  body:not(.home-view) #title{font-size:clamp(46px,5.8vw,70px)}
+  body:not(.home-view) .project-heading h1.medium{font-size:clamp(42px,5.2vw,61px)}
+  body:not(.home-view) .project-heading h1.long{font-size:clamp(39px,4.65vw,53px)}
+  body[data-scene="divine-retribution"] #title{font-size:clamp(43px,5.15vw,62px)}
+  body[data-scene="a-time-for-every-star"] #title{font-size:clamp(42px,5.25vw,61px)}
+  body[data-scene="world-knowledge-forum"] #title{font-size:clamp(39px,4.6vw,52px)}
+  body:is([data-scene="sk-biopharm-01"],[data-scene="sk-biopharm-02"],[data-scene="sk-biopharm-full"]) #title{font-size:clamp(42px,5.25vw,61px)}
+  body:not(.home-view) .project-caption #caption{font-size:18px}
+  body:not(.home-view) .project-caption #summary{font-size:12px}
+  body:not(.home-view) .preview-name{font-size:10px}
+}
+@media(max-width:760px){
+  body:not(.home-view) .stage-top{
+    margin-bottom:20px;
+    font-size:9px;
+    gap:12px;
+  }
+  body:not(.home-view) .work-layout{
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+    gap:0;
+  }
+  body:not(.home-view) .project-heading{
+    padding:0;
+    margin:0 0 21px;
+    width:100%;
+  }
+  body:not(.home-view) .eyebrow{
+    font-size:9px;
+    margin-bottom:13px;
+    letter-spacing:.055em;
+  }
+  body:not(.home-view) #title{
+    font-size:clamp(44px,11.8vw,71px);
+    line-height:1.045;
+    letter-spacing:-.069em;
+    text-wrap:balance;
+    max-width:100%;
+  }
+  body:not(.home-view) .project-heading h1.medium{
+    font-size:clamp(42px,10.75vw,64px);
+  }
+  body:not(.home-view) .project-heading h1.long{
+    font-size:clamp(39px,10vw,59px);
+  }
+  body[data-scene="divine-retribution"] #title{
+    font-size:clamp(44px,12.1vw,68px);
+    white-space:nowrap;
+    text-wrap:nowrap;
+    line-height:1.02;
+    letter-spacing:-.076em;
+  }
+  body[data-scene="a-time-for-every-star"] #title{
+    font-size:clamp(44px,11.4vw,67px);
+  }
+  body[data-scene="world-knowledge-forum"] #title{
+    font-size:clamp(39px,10.1vw,59px);
+    line-height:1.02;
+  }
+  body:is([data-scene="sk-biopharm-01"],[data-scene="sk-biopharm-02"],[data-scene="sk-biopharm-full"]) #title{
+    font-size:clamp(44px,11.2vw,67px);
+  }
+  body:not(.home-view) .media-column{
+    width:100%;
+    max-width:100%;
+    align-self:auto;
+  }
+  body:not(.home-view) .screen{
+    aspect-ratio:16/9;
+  }
+  body.vertical-work:not(.home-view) .media-column{
+    width:min(74%,290px);
+    max-width:none;
+    align-self:center;
+  }
+  body.vertical-work:not(.home-view) .screen{aspect-ratio:9/16}
+  body.vertical-work:not(.home-view) .work-previews{
+    width:min(calc(100vw - 44px),440px);
+    left:50%;
+    transform:translateX(-50%);
+  }
+  body:not(.home-view) .project-caption{
+    margin:25px 0 0;
+    padding:0 0 18px;
+    width:100%;
+    max-width:none;
+    align-self:auto;
+  }
+  body:not(.home-view) .project-caption #caption{
+    font-size:17px;
+    line-height:1.55;
+  }
+  body:not(.home-view) .project-caption #summary{
+    font-size:13px;
+    line-height:1.8;
+    margin-top:11px;
+  }
+  body:not(.home-view) .work-previews{margin-top:18px}
+  body:not(.home-view) .preview-bar{font-size:9px}
+  body:not(.home-view) .preview-name{font-size:10px}
+  body:not(.home-view) .media-foot>span{font-size:8px}
+  body:not(.home-view) #watch{font-size:10px}
+  .contact-identity{margin:25px 0 23px}
+  .contact-identity>strong{font-size:clamp(38px,10vw,57px)}
+  .contact-identity>small{font-size:9px}
+}
+@media(max-width:360px){
+  body[data-scene="divine-retribution"] #title{font-size:clamp(41px,11.6vw,45px)}
+  body:not(.home-view) .preview-name{font-size:9px}
+  .contact-identity{grid-template-columns:1fr;gap:8px}
+  .contact-identity>small{text-align:left}
+}
