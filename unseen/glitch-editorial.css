@@ -825,3 +825,24 @@ body.home-view{background:#121416}
   .glitching .glitch-strips,
   .glitching h1::before,.glitching h1::after{animation:none!important}
 }
+
+
+/* Mobile visitors can reach the final-frame contact without opening Index. */
+.mobile-contact-link{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:16px;
+  border-top:1px solid var(--line);
+  font:10px/1.6 var(--editorial-mono);
+  letter-spacing:.085em;
+  color:var(--text);
+}
+.home-view .mobile-contact-link{display:flex;margin-top:clamp(25px,3.5vw,40px)}
+.mobile-contact-link>span:last-child{font-size:22px;color:#cbd4cc;line-height:1}
+body:not(.home-view) .mobile-contact-link{display:none}
+@media(max-width:760px){
+ .home-view .mobile-contact-link{padding:15px 0;margin-top:22px}
+ .mobile-contact-link>span:first-child{font-size:10px}
+}
