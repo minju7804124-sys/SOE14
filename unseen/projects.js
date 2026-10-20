@@ -133,7 +133,7 @@ window.PROJECTS = [
   {
     "id": "DdM62tCoq7I",
     "slug": "insomnia",
-    "title": "INSOMNIA",
+    "title": "Insomnia",
     "subtitle": "A RECORD OF SLEEPLESS NIGHTS",
     "category": "SHORT ANIMATION",
     "caption": "잠들고 싶지만, 잠들 수 없는 밤.",
@@ -142,7 +142,7 @@ window.PROJECTS = [
     "poster": "../assets/yt-DdM62tCoq7I.webp",
     "url": "https://www.youtube.com/watch?v=DdM62tCoq7I",
     "summary": "몇 년간 불면을 겪으며 느낀 감정을 담은 짧은 애니메이션. 이어폰과 함께 감상해주세요.",
-    "displayTitle": "insomnia",
+    "displayTitle": "Insomnia",
     "artWord": "still awake.",
     "section": "film",
     "role": "Filmmaker",
