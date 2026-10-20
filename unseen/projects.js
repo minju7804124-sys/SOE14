@@ -191,7 +191,7 @@ window.PROJECTS = [
     "url": "https://www.youtube.com/shorts/X5W1W6ki_pw"
   },
   {
-    "id": "small-tool-big-save",
+    "id": "RldAtqbCBu8",
     "slug": "small-tool-big-save",
     "title": "SMALL TOOL, BIG SAVE",
     "displayTitle": "Small Tool,\nBig Save",
@@ -204,9 +204,9 @@ window.PROJECTS = [
     "credit": "공모전 출품작 · Runway Big Ad Contest · soE!",
     "artWord": "BIG SAVE.",
     "section": "commercial",
-    "poster": "../assets/small-tool-big-save.svg",
+    "poster": "../assets/yt-RldAtqbCBu8.webp",
     "duration": "AD FILM",
-    "url": ""
+    "url": "https://www.youtube.com/watch?v=RldAtqbCBu8"
   },
   {
     "id": "qBbE_4fdYJ4",
