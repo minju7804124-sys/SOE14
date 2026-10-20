@@ -204,7 +204,7 @@ window.PROJECTS = [
     "credit": "공모전 출품작 · Runway Big Ad Contest · soE!",
     "artWord": "BIG SAVE.",
     "section": "commercial",
-    "poster": "../assets/yt-RldAtqbCBu8.webp",
+    "poster": "https://img.youtube.com/vi/RldAtqbCBu8/hqdefault.jpg",
     "duration": "AD FILM",
     "url": "https://www.youtube.com/watch?v=RldAtqbCBu8"
   },
