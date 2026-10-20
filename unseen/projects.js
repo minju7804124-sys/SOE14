@@ -2,7 +2,7 @@ window.PROJECTS = [
   {
     "id": "AoEvTzt7m-M",
     "slug": "divine-retribution",
-    "title": "살 : 煞",
+    "title": "살;(煞)",
     "subtitle": "DIVINE RETRIBUTION",
     "category": "FOLK HORROR / SHORT FILM",
     "caption": "두려움은 누구의 시선에서 시작되는가.",
@@ -11,7 +11,7 @@ window.PROJECTS = [
     "poster": "../assets/yt-AoEvTzt7m-M.webp",
     "url": "https://www.youtube.com/watch?v=AoEvTzt7m-M",
     "summary": "공동체의 두려움과 왜곡된 믿음, 그리고 되돌아오는 비극을 그린 한국 오컬트 AI 단편.",
-    "displayTitle": "살",
+    "displayTitle": "살;(煞)",
     "artWord": "煞",
     "section": "film",
     "role": "Filmmaker",
@@ -36,6 +36,31 @@ window.PROJECTS = [
       {
         "name": "ICJ 2027 · Official Selection",
         "src": "../assets/laurels/icj.png",
+        "tone": "black"
+      }
+    ]
+  },
+  {
+    "id": "A8DrBim2c1g",
+    "slug": "echo",
+    "title": "ECHO",
+    "subtitle": "A DREAM BEYOND LIFE",
+    "category": "FANTASY / ANIMATION",
+    "caption": "삶의 너머에서 울려오는 이야기.",
+    "description": "사후세계를 배경으로 한 몽환적 판타지 애니메이션. Film by soE!.",
+    "duration": "14:27",
+    "poster": "../assets/yt-A8DrBim2c1g.webp",
+    "url": "https://www.youtube.com/watch?v=A8DrBim2c1g",
+    "summary": "사후세계를 배경으로 펼쳐지는 몽환적인 판타지 애니메이션.",
+    "displayTitle": "Echo",
+    "artWord": "after / life",
+    "section": "film",
+    "role": "Filmmaker",
+    "credit": "Film by soE!",
+    "laurels": [
+      {
+        "name": "OMNI 2026 · Official Selection",
+        "src": "../assets/laurels/omni.png",
         "tone": "black"
       }
     ]
@@ -76,31 +101,6 @@ window.PROJECTS = [
     "section": "film",
     "role": "Filmmaker",
     "credit": "Film by soE!"
-  },
-  {
-    "id": "A8DrBim2c1g",
-    "slug": "echo",
-    "title": "ECHO",
-    "subtitle": "A DREAM BEYOND LIFE",
-    "category": "FANTASY / ANIMATION",
-    "caption": "삶의 너머에서 울려오는 이야기.",
-    "description": "사후세계를 배경으로 한 몽환적 판타지 애니메이션. Film by soE!.",
-    "duration": "14:27",
-    "poster": "../assets/yt-A8DrBim2c1g.webp",
-    "url": "https://www.youtube.com/watch?v=A8DrBim2c1g",
-    "summary": "사후세계를 배경으로 펼쳐지는 몽환적인 판타지 애니메이션.",
-    "displayTitle": "Echo",
-    "artWord": "after / life",
-    "section": "film",
-    "role": "Filmmaker",
-    "credit": "Film by soE!",
-    "laurels": [
-      {
-        "name": "OMNI 2026 · Official Selection",
-        "src": "../assets/laurels/omni.png",
-        "tone": "black"
-      }
-    ]
   },
   {
     "id": "nEc8pfo4xWo",
