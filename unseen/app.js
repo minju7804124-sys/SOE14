@@ -3,6 +3,29 @@ const $=s=>document.querySelector(s),P=[{id:'home',slug:'home',title:'soE!',subt
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let signalMix=.35,draggingReality=false;
 let current=Math.max(0,P.findIndex(p=>p.slug===location.hash.slice(1))),busy=false,previousFocus=null;
+const editorialReverse=new Set(['echo','regame','insomnia','high-noon-coke','sk-biopharm-02','world-knowledge-forum']);
+const editorialPalette={home:[165,176,173],'divine-retribution':[148,103,99],echo:[137,144,178],umwelt:[108,145,159],regame:[136,123,151],'the-last-string':[176,157,143],insomnia:[102,132,155],'a-time-for-every-star':[160,124,120],'nepda-sale':[174,128,118],'sk-biopharm-01':[123,149,142],'high-noon-coke':[177,141,110],'sk-biopharm-02':[123,149,142],'world-knowledge-forum':[122,146,161],'sk-biopharm-full':[123,149,142]};
+function updateSceneAccent(img,slug){
+ const fallback=editorialPalette[slug]||[149,155,157];
+ const apply=rgb=>document.documentElement.style.setProperty('--accent-rgb',rgb.join(','));
+ apply(fallback);
+ if(!img?.naturalWidth||!img?.naturalHeight||slug==='home')return;
+ try{
+  const cvs=document.createElement('canvas');cvs.width=32;cvs.height=20;
+  const ctx=cvs.getContext('2d',{willReadFrequently:true});if(!ctx)return;
+  ctx.drawImage(img,0,0,32,20);
+  const px=ctx.getImageData(0,0,32,20).data;
+  let best=null,bestScore=0;
+  for(let i=0;i<px.length;i+=4){
+   const rr=px[i],gg=px[i+1],bb=px[i+2];
+   const mx=Math.max(rr,gg,bb),mn=Math.min(rr,gg,bb),l=(mx+mn)/510,sat=(mx-mn)/(255||1);
+   if(l<.17||l>.81||sat<.10||sat>.70)continue;
+   const score=sat*(1-Math.abs(l-.52))*.94;
+   if(score>bestScore){bestScore=score;best=[rr,gg,bb]}
+  }
+  if(best)apply(best.map((v,i)=>Math.round(v*.32+fallback[i]*.68)));
+ }catch(e){apply(fallback)}
+}
 if(['film','commercial'].includes(location.hash.slice(1)))current=P.findIndex(p=>p.section===location.hash.slice(1));
 let activeSection=P[current].section||'film';
 const reduced=matchMedia('(prefers-reduced-motion:reduce)');let fx=!reduced.matches&&innerWidth>760;let textureReady=false,gl=null,program=null,texture=null,locations={},imageAspect=16/9,imageTicket=0,frame=0,last=0,energy=0,burst=0,px=.5,py=.5,tx=.5,ty=.5;
@@ -94,6 +117,9 @@ function step(direction){const ids=sectionIndices();if(current===0){go(direction
 function display(i){
  current=i;const p=P[i];if(p.section)activeSection=p.section;
  document.body.dataset.scene=p.slug;document.body.dataset.section=p.section||'home';
+ document.body.dataset.editorial=editorialReverse.has(p.slug)?'reverse':'forward';
+ document.body.dataset.issue=current===0?'cover':'work';
+ document.documentElement.style.setProperty('--accent-rgb',(editorialPalette[p.slug]||editorialPalette.home).join(','));
  document.body.classList.toggle('has-laurels',!!p.laurels?.length);document.body.classList.toggle('company-work',!!p.studio);document.body.classList.toggle('vertical-work',!!p.vertical);
  document.documentElement.style.setProperty('--scene-image',`url("${p.poster}")`);
  $('#artWord').textContent=p.artWord||'';document.body.classList.toggle('home-view',i===0);
@@ -101,7 +127,10 @@ function display(i){
  $('#screenPlay span:last-child').textContent=i===0?'VIEW SELECTED WORK':'PLAY FILM';
  $('#watch').innerHTML=(i===0?'EXPLORE FILM':'WATCH FILM')+' <span class="small-play" aria-hidden="true"></span>';
  $('#details').innerHTML=(i===0?'Artist note':p.studio?'Project & credits':'About the work')+' <span>↗</span>';
- poster.src=p.poster;poster.alt=i===0?'soE!의 상징인 빛나는 홀로그램 나비':p.title+' 작품 이미지';setTexture(p.poster);
+ poster.onload=()=>{if(current===i)updateSceneAccent(poster,p.slug)};
+ poster.src=p.poster;poster.alt=i===0?'soE!의 상징인 빛나는 홀로그램 나비':p.title+' 작품 이미지';
+ if(poster.complete&&poster.naturalWidth)updateSceneAccent(poster,p.slug);
+ setTexture(p.poster);
  const displayName=p.displayTitle||p.title;$('#title').textContent=displayName;$('#title').setAttribute('aria-label',p.title);$('#title').dataset.text=displayName;const typeLength=displayName.replace(/\s+/g,'').length;$('#title').className=typeLength>15?'long':typeLength>10?'medium':'';
  $('#projectSubtitle').textContent=p.subtitle;$('#genre').textContent=p.category;$('#duration').textContent=p.duration;
  $('#frameLabel').textContent='FRAME / '+p.slug.toUpperCase().replaceAll('-','_');
@@ -120,7 +149,7 @@ function go(i){
  const reveal=()=>{display(next);window.scrollTo({top:0,behavior:'auto'})};
  if(!fx){reveal();return}busy=true;burst=1;
  $('#transitionNumber').textContent=next===0?'00':String(sectionIndices(P[next].section).indexOf(next)+1).padStart(2,'0');
- document.body.classList.add('switching');setTimeout(reveal,210);setTimeout(()=>{document.body.classList.remove('switching');busy=false},520)
+ document.body.classList.add('switching');setTimeout(reveal,125);setTimeout(()=>{document.body.classList.remove('switching');busy=false},340)
 }
 function openPlayer(){if(current===0){selectSection('film');return}previousFocus=document.activeElement;if(drawer.open)drawer.close();const p=P[current];player.dataset.format=p.vertical?'portrait':'landscape';$('#playerTitle').textContent=p.title;$('#youtubeLink').href=p.url;const iframe=document.createElement('iframe');iframe.title=p.title+' — YouTube 영상';iframe.src=`https://www.youtube-nocookie.com/embed/${p.id}?autoplay=1&rel=0&playsinline=1&origin=${encodeURIComponent(location.origin)}`;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';$('#playerMount').replaceChildren(iframe);player.showModal();cancelAnimationFrame(frame);player.querySelector('.close').focus()}
 function panel(type){if(current===0&&type==='details')type='about';previousFocus=document.activeElement;const p=P[current];let html='';if(type==='index'){html=`<div class="drawer-eyebrow">SELECTED WORK / ${P.length-1} PROJECTS</div><h2 id="drawerTitle">Film &<br>Commercial.</h2>${['film','commercial'].map(section=>`<section class="index-section"><div class="index-section-heading"><h3>${section==='film'?'Film':'Commercial'}</h3><span>${sectionIndices(section).length} WORKS</span></div><div class="index-list">${sectionIndices(section).map((i,n)=>{const x=P[i];return `<button class="index-row ${i===current?'active':''}" data-select="${i}"><span class="row-number">${String(n+1).padStart(2,'0')}</span><img class="row-thumb" src="${esc(x.poster)}" alt="" loading="lazy"><span class="row-title">${esc(x.title)}<span class="row-type">${esc(x.studio?'AI ARTIST / '+x.studio:x.category)}</span></span><span class="row-time">${esc(x.duration)}</span></button>`}).join('')}</div></section>`).join('')}<div class="drawer-links"><button data-panel="about">ABOUT ↗</button><button data-panel="contact">CONTACT ↗</button><a href="https://www.youtube.com/@soezip" target="_blank" rel="noopener noreferrer">YOUTUBE / @SOEZIP</a></div>`}
@@ -128,10 +157,28 @@ if(type==='details'){const caseHtml=p.caseStudy?'<div class="case-study" aria-la
 if(type==='about'){html=`<div class="drawer-eyebrow">THE ARTIST / CHOI MINJU</div><h2 id="drawerTitle">BEYOND<br>THE FRAME.</h2><img class="about-portrait" src="../assets/portrait.webp" alt="soE! 최민주"><p class="drawer-copy lead">현실에 없는 장면으로,<br>현실에 남는 감정을.</p><p class="drawer-copy">AI 비주얼 디렉터이자 제너레이티브 필름메이커 최민주, soE!입니다. 영화와 애니메이션, 브랜드 필름을 통해 현실과 초현실 사이의 이야기를 만듭니다.</p><p class="drawer-copy">의미가 전해지는 연출, 장면의 리듬과 호흡, 음악과 이미지의 결합. 이미지 너머에 남는 감정을 설계합니다.</p><div class="data-rows"><div class="data-row"><span>PRACTICE</span><span>Film / Animation / Commercial</span></div><div class="data-row"><span>FOCUS</span><span>Visual direction / Storytelling / Sound</span></div><div class="data-row"><span>CHANNEL</span><a href="https://www.youtube.com/@soezip" target="_blank" rel="noopener noreferrer">@soezip</a></div></div><button class="drawer-action" data-panel="contact">START A CONVERSATION</button>`}
 if(type==='contact'){html=`<div class="drawer-eyebrow">FOR THE NEXT REALITY</div><h2 id="drawerTitle">LET’S<br>MAKE IT<br>UNREAL.</h2><div class="contact-identity"><span>DIRECT CONTACT / FILMMAKER &amp; AI ARTIST</span><strong>최민주</strong><small>CHOI MINJU · soE!</small></div><p class="drawer-copy">영화, 브랜드, 혹은 아직 이름 없는 아이디어.<br>다음 장면을 함께 만들어보세요.</p><a class="contact-email" href="mailto:soezip0001@gmail.com">soezip0001@gmail.com</a><button class="contact-copy" id="copyEmail">COPY EMAIL</button><span class="copy-status" id="copyStatus" role="status"></span><div class="data-rows"><div class="data-row"><span>PHONE</span><a href="tel:+821064767804">+82 10 6476 7804</a></div><div class="data-row"><span>INSTAGRAM</span><a href="https://www.instagram.com/xx_soe.zip/" target="_blank" rel="noopener noreferrer">@xx_soe.zip</a></div><div class="data-row"><span>YOUTUBE</span><a href="https://www.youtube.com/@soezip" target="_blank" rel="noopener noreferrer">@soezip</a></div></div><a class="drawer-action" href="mailto:soezip0001@gmail.com">WRITE TO soE!</a>`}
 $('#drawerContent').innerHTML=html;if(!drawer.open)drawer.showModal();drawer.scrollTop=0;cancelAnimationFrame(frame);drawer.querySelector('.close').focus();$('#drawerContent').querySelectorAll('[data-select]').forEach(b=>b.addEventListener('click',()=>{drawer.close();go(Number(b.dataset.select))}));$('[data-play]')?.addEventListener('click',openPlayer);$('#drawerContent').querySelectorAll('[data-panel]').forEach(b=>b.addEventListener('click',e=>panel(e.currentTarget.dataset.panel)));$('#copyEmail')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('soezip0001@gmail.com');$('#copyStatus').textContent='복사했어요.'}catch{$('#copyStatus').textContent='주소를 선택해 복사해주세요.'}})}
-document.querySelectorAll('[data-section]').forEach(b=>b.addEventListener('click',()=>selectSection(b.dataset.section)));document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>panel(b.dataset.open)));$('#details').addEventListener('click',()=>panel('details'));$('#watch').addEventListener('click',openPlayer);$('#screenPlay').addEventListener('click',openPlayer);$('#prev').addEventListener('click',()=>step(-1));$('#next').addEventListener('click',()=>step(1));document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).close()));
+document.querySelectorAll('[data-section]').forEach(b=>b.addEventListener('click',()=>selectSection(b.dataset.section)));
+const contactJump=$('#contactJump');
+contactJump?.addEventListener('click',()=>{
+ document.getElementById('contact-finale')?.scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'start'});
+});
+document.querySelectorAll('[data-end-return]').forEach(b=>b.addEventListener('click',e=>{
+ e.preventDefault();
+ window.scrollTo({top:0,behavior:reduced.matches?'auto':'smooth'});
+}));document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>panel(b.dataset.open)));$('#details').addEventListener('click',()=>panel('details'));$('#watch').addEventListener('click',openPlayer);$('#screenPlay').addEventListener('click',openPlayer);$('#prev').addEventListener('click',()=>step(-1));$('#next').addEventListener('click',()=>step(1));document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).close()));
 [drawer,player].forEach(d=>{d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()});d.addEventListener('close',()=>{if(d===player)$('#playerMount').replaceChildren();previousFocus?.focus();startRender()})});
 let lastPointerX=.5,lastPointerY=.5,swiping=false,touchStart=null;
-screen.addEventListener('pointermove',e=>{if(draggingReality){setSignal((e.clientX-screen.getBoundingClientRect().left)/screen.clientWidth);return}if(e.pointerType==='touch'||!fx)return;const r=screen.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=1-(e.clientY-r.top)/r.height;energy=Math.min(1,energy+Math.hypot(tx-lastPointerX,ty-lastPointerY)*18);lastPointerX=tx;lastPointerY=ty;$('#coordinate').textContent=`[ ${String(Math.round(tx*100)).padStart(3,'0')} : ${String(Math.round((1-ty)*100)).padStart(3,'0')} ]`;document.body.classList.add('screen-hover')});screen.addEventListener('pointerleave',()=>{document.body.classList.remove('screen-hover');energy*=.3});
+screen.addEventListener('pointermove',e=>{
+ if(current===0&&e.pointerType==='mouse'&&!reduced.matches&&!draggingReality){
+  const r=screen.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;
+  document.documentElement.style.setProperty('--hero-px',(nx*17).toFixed(2)+'px');
+  document.documentElement.style.setProperty('--hero-py',(ny*11).toFixed(2)+'px');
+ }
+ if(draggingReality){setSignal((e.clientX-screen.getBoundingClientRect().left)/screen.clientWidth);return}if(e.pointerType==='touch'||!fx)return;const r=screen.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=1-(e.clientY-r.top)/r.height;energy=Math.min(1,energy+Math.hypot(tx-lastPointerX,ty-lastPointerY)*18);lastPointerX=tx;lastPointerY=ty;$('#coordinate').textContent=`[ ${String(Math.round(tx*100)).padStart(3,'0')} : ${String(Math.round((1-ty)*100)).padStart(3,'0')} ]`;document.body.classList.add('screen-hover')});screen.addEventListener('pointerleave',()=>{
+ document.body.classList.remove('screen-hover');energy*=.3;
+ document.documentElement.style.setProperty('--hero-px','0px');
+ document.documentElement.style.setProperty('--hero-py','0px');
+});
 screen.addEventListener('click',e=>{if(current===0||e.target.closest('button,a')||swiping)return;openPlayer()});
 $('#exhibition').addEventListener('touchstart',e=>{if(current===0||e.touches.length!==1||e.target.closest('input,button,a'))return;touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY};swiping=false},{passive:true});$('#exhibition').addEventListener('touchmove',e=>{if(!touchStart)return;if(Math.hypot(e.touches[0].clientX-touchStart.x,e.touches[0].clientY-touchStart.y)>20)swiping=true},{passive:true});$('#exhibition').addEventListener('touchend',e=>{if(!touchStart)return;const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.3)step(dx<0?1:-1);touchStart=null;setTimeout(()=>swiping=false,250)},{passive:true});
 let wheelSum=0,wheelGated=false,wheelTimer;window.addEventListener('wheel',e=>{if(current===0||drawer.open||player.open||e.ctrlKey||innerHeight<800||innerWidth<=760||document.documentElement.scrollHeight>innerHeight+4)return;e.preventDefault();clearTimeout(wheelTimer);wheelTimer=setTimeout(()=>{wheelGated=false;wheelSum=0},220);if(wheelGated||busy)return;wheelSum+=e.deltaY;if(Math.abs(wheelSum)>60){step(wheelSum>0?1:-1);wheelSum=0;wheelGated=true}},{passive:false});
