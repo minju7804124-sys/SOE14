@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=10">
 <link rel="stylesheet" href="editorial.css?v=12">
+<link rel="stylesheet" href="glitch-editorial.css?v=15">
 </head>
 <body class="intro home-view" data-scene="home">
 <a class="skip-link" href="#exhibition">작품으로 바로 이동</a>
@@ -16,11 +17,12 @@
  <a class="logo" href="#home" aria-label="soE! 메인페이지">soE<span>!</span></a>
  <div class="signature">CHOI MINJU<br>FILMMAKER / AI ARTIST</div>
  <nav class="section-nav" aria-label="작품 섹션"><button data-section="film">Film <sup id="filmCount">06</sup></button><button data-section="commercial">Commercial <sup id="commercialCount">07</sup></button></nav>
- <nav class="utility-nav" aria-label="사이트 메뉴"><button data-open="about" class="desktop-link">About</button><button data-open="contact" class="desktop-link">Contact</button><button data-open="index" class="index-nav" aria-label="작품 목록과 메뉴 열기">Index <span>＋</span></button></nav>
+ <nav class="utility-nav" aria-label="사이트 메뉴"><button data-open="about" class="desktop-link">About</button><button id="contactJump" class="desktop-link" aria-controls="contact-finale">Contact ↗</button><button data-open="index" class="index-nav" aria-label="작품 목록과 메뉴 열기">Index <span>＋</span></button></nav>
  <button class="motion" id="motion" aria-pressed="true">FX <span>ON</span></button>
 </header>
 <main id="exhibition" aria-label="작품 상영관" tabindex="-1">
  <div class="scene-backdrop" aria-hidden="true"></div>
+ <aside class="editorial-rail" aria-hidden="true">BETWEEN THE SEEN &amp; UNSEEN / CHOI MINJU ©2026</aside>
  <div class="stage-top"><span><i class="signal-dot"></i>SIGNAL ARCHIVE / <b id="archiveCount">13</b></span><span id="genre">FILMMAKER / AI ARTIST</span><span id="duration">DREAM SIGNAL</span></div>
  <div class="work-layout">
   <div class="project-heading" id="projectHeading"><div class="eyebrow"><span id="projectNumber">00</span><span id="projectSubtitle">CHOI MINJU / IMAGE MAKER</span></div><h1 id="title" data-text="soE!">soE!</h1></div>
@@ -44,9 +46,34 @@
  <div class="home-sections"><button data-section="film"><span class="entry-number">01 / <b data-count="film">06</b> WORKS</span><strong>Film</strong><span class="entry-arrow">↗</span><small>이야기와 그 너머의 세계</small></button><button data-section="commercial"><span class="entry-number">02 / <b data-count="commercial">07</b> WORKS</span><strong>Commercial</strong><span class="entry-arrow">↗</span><small>브랜드를 위한 새로운 장면</small></button></div>
  <div class="transport"><div class="transport-left"><span class="section-label" id="sectionLabel">ARCHIVE</span><button id="prev" aria-label="이전 작품">←</button><span><b id="counter">01</b><i>/</i><span class="totalCount">06</span></span><button id="next" aria-label="다음 작품">→</button></div><div class="progress" id="progress" role="group" aria-label="작품 바로 이동"></div><div class="transport-right"><span class="scroll-hint">SWIPE / ARROW KEYS</span><button id="watch">WATCH FILM <span class="small-play" aria-hidden="true"></span></button></div></div>
  <div class="transition-label" aria-hidden="true"><span id="transitionNumber">01</span><span>SIGNAL / SHIFT</span></div>
+ <span class="cover-issue" aria-hidden="true">AN IMAGE BY soE! / ISSUE 001</span>
 </main>
+<section class="contact-finale" id="contact-finale" aria-labelledby="finaleTitle">
+ <div class="end-header"><span>SOE! / THE FINAL FRAME &nbsp; [ CONTACT ]</span><button class="end-back" type="button" data-end-return>BACK TO THE FILMS ↑</button></div>
+ <div class="end-content">
+  <div>
+   <p class="end-eyebrow">LET THE NEXT SCENE BEGIN / 001</p>
+   <h2 id="finaleTitle">LET'S<br><em>TALK.</em></h2>
+  </div>
+  <p class="end-side">현실에 없는 장면으로,<br>현실에 남는 감정을.<br><br>영화와 브랜드, 새로운 이야기를 함께 만듭니다.</p>
+ </div>
+ <div>
+  <div class="end-bottom">
+   <div class="end-name">
+    <strong>최민주</strong>
+    <span>CHOI MINJU · soE! / FILMMAKER &amp; AI ARTIST</span>
+   </div>
+   <div class="end-links">
+    <a href="mailto:soezip0001@gmail.com"><span>soezip0001@gmail.com</span><span>↗</span></a>
+    <a href="https://www.instagram.com/xx_soe.zip/" target="_blank" rel="noopener noreferrer"><span>INSTAGRAM</span><span>↗</span></a>
+    <a href="https://www.youtube.com/@soezip" target="_blank" rel="noopener noreferrer"><span>YOUTUBE</span><span>↗</span></a>
+   </div>
+  </div>
+  <div class="end-small"><span>BETWEEN THE SEEN &amp; UNSEEN</span><span>© 2026 CHOI MINJU</span></div>
+ </div>
+</section>
 <dialog id="drawer" aria-labelledby="drawerTitle"><div class="drawer-top"><span>soE! / SIGNAL ARCHIVE</span><button class="close" data-close="drawer">CLOSE <b>×</b></button></div><div id="drawerContent"></div></dialog>
 <dialog id="player" aria-labelledby="playerTitle"><div class="player-top"><h2 id="playerTitle">Film</h2><button class="close" data-close="player">CLOSE <b>×</b></button></div><div id="playerMount"></div><div class="player-bottom"><span>재생이 제한되면 YouTube에서 감상하세요.</span><a id="youtubeLink" target="_blank" rel="noopener noreferrer">OPEN IN YOUTUBE ↗</a></div></dialog>
 <p class="sr-only" role="status" aria-live="polite" id="status"></p>
-<script src="projects.js?v=11"></script><script src="app.js?v=12"></script>
+<script src="projects.js?v=11"></script><script src="app.js?v=15"></script>
 </body></html>
