@@ -38,7 +38,12 @@ window.PROJECTS = [
         "src": "../assets/laurels/icj.png",
         "tone": "black"
       }
-    ]
+    ],
+    "caseStudy": {
+      "project": "한국 오컬트 AI 단편 영화",
+      "focus": "공포의 실체보다 군중의 시선과 왜곡된 믿음에 초점을 둔 서사",
+      "role": "Filmmaker / soE!"
+    }
   },
   {
     "id": "A8DrBim2c1g",
@@ -63,7 +68,12 @@ window.PROJECTS = [
         "src": "../assets/laurels/omni.png",
         "tone": "black"
       }
-    ]
+    ],
+    "caseStudy": {
+      "project": "사후세계를 배경으로 한 판타지 애니메이션",
+      "focus": "삶의 너머에서 울려오는 이야기를 영화적 이미지로 표현",
+      "role": "Filmmaker / soE!"
+    }
   },
   {
     "id": "DaDgfYiMp78",
@@ -154,7 +164,12 @@ window.PROJECTS = [
     "section": "commercial",
     "poster": "../assets/yt-L6bAjUydsMY.jpg",
     "duration": "AI CF",
-    "url": "https://www.youtube.com/watch?v=L6bAjUydsMY"
+    "url": "https://www.youtube.com/watch?v=L6bAjUydsMY",
+    "caseStudy": {
+      "project": "화성특례시 AI CF · 별별화성 Awards 개인 작업",
+      "focus": "화성특례시를 주제로 한 시네마틱 도시 영상",
+      "role": "Filmmaker / soE!"
+    }
   },
   {
     "id": "X5W1W6ki_pw",
@@ -174,24 +189,6 @@ window.PROJECTS = [
     "poster": "../assets/yt-X5W1W6ki_pw.webp",
     "duration": "0:29",
     "url": "https://www.youtube.com/shorts/X5W1W6ki_pw"
-  },
-  {
-    "id": "-tGbl5Y5C2E",
-    "slug": "high-noon-coke",
-    "title": "HIGH NOON COKE",
-    "subtitle": "A DIFFERENT KIND OF WESTERN",
-    "category": "WESTERN / COMMERCIAL",
-    "caption": "황야의 긴장감, 한 모금의 반전.",
-    "description": "기름 대신 콜라를 택한 카우보이의 한마디로 전개되는 서부극 스타일의 AI 광고. 콜라 한 병을 장르적 오브제로 재해석한 작업.",
-    "duration": "0:55",
-    "poster": "../assets/yt--tGbl5Y5C2E.webp",
-    "url": "https://www.youtube.com/watch?v=-tGbl5Y5C2E",
-    "summary": "황야의 긴장감과 카우보이의 반전. 콜라 한 병을 서부극의 오브제로 재해석한 AI 광고.",
-    "displayTitle": "High Noon\nCoke",
-    "artWord": "HIGH NOON",
-    "section": "commercial",
-    "role": "Filmmaker",
-    "credit": "Personal project · soE!"
   },
   {
     "id": "qBbE_4fdYJ4",
@@ -216,6 +213,24 @@ window.PROJECTS = [
     "url": "https://www.youtube.com/watch?v=qBbE_4fdYJ4"
   },
   {
+    "id": "-tGbl5Y5C2E",
+    "slug": "high-noon-coke",
+    "title": "HIGH NOON COKE",
+    "subtitle": "A DIFFERENT KIND OF WESTERN",
+    "category": "WESTERN / COMMERCIAL",
+    "caption": "황야의 긴장감, 한 모금의 반전.",
+    "description": "기름 대신 콜라를 택한 카우보이의 한마디로 전개되는 서부극 스타일의 AI 광고. 콜라 한 병을 장르적 오브제로 재해석한 작업.",
+    "duration": "0:55",
+    "poster": "../assets/yt--tGbl5Y5C2E.webp",
+    "url": "https://www.youtube.com/watch?v=-tGbl5Y5C2E",
+    "summary": "황야의 긴장감과 카우보이의 반전. 콜라 한 병을 서부극의 오브제로 재해석한 AI 광고.",
+    "displayTitle": "High Noon\nCoke",
+    "artWord": "HIGH NOON",
+    "section": "commercial",
+    "role": "Filmmaker",
+    "credit": "Personal project · soE!"
+  },
+  {
     "id": "ELyxQOvLRV0",
     "slug": "sk-biopharm-02",
     "title": "SK 바이오팜 / Ver.02",
@@ -238,28 +253,6 @@ window.PROJECTS = [
     "url": "https://www.youtube.com/watch?v=ELyxQOvLRV0"
   },
   {
-    "id": "IoFY0RWF0_M",
-    "slug": "sk-biopharm-full",
-    "title": "SK 바이오팜 / Full Ver.",
-    "displayTitle": "SK\nBiopharm",
-    "subtitle": "FULL VER. / SK BIOPHARMACEUTICALS",
-    "category": "COMMERCIAL / BRAND FILM",
-    "caption": "SK 바이오팜 · Full Ver.",
-    "summary": "STUDIO FREEWILLUSION 제작. 최민주가 AI Artist로 참여한 SK 바이오팜 브랜드 필름.",
-    "description": "스튜디오 프리윌루전에서 AI Artist로 참여한 SK 바이오팜 브랜드 필름 Full Ver..",
-    "role": "AI Artist",
-    "studio": "STUDIO FREEWILLUSION",
-    "client": "SK 바이오팜",
-    "director": "최서영",
-    "credit": "AI Artist · 최민주 / STUDIO FREEWILLUSION",
-    "fullCredits": "(주)스튜디오 프리윌루전\nAI 연출 : 최서영\nAI 수퍼바이저 : 이승훈\nE.PD : 김재헌\nPD : 정유진\nAI 아티스트 : 김진우, 김서우, 안중규, 이재성, 최민주, 송위종, 이가희\n2D 아티스트 : 이승훈, 전지오\nAI 플래너 : 박종혁, 임태균\n클라이언트 : SK 바이오팜",
-    "artWord": "Full Ver.",
-    "section": "commercial",
-    "poster": "../assets/yt-IoFY0RWF0_M.webp",
-    "duration": "7:22",
-    "url": "https://www.youtube.com/watch?v=IoFY0RWF0_M"
-  },
-  {
     "id": "HbtX0ODXCwY",
     "slug": "world-knowledge-forum",
     "title": "2026 세계지식포럼",
@@ -280,5 +273,27 @@ window.PROJECTS = [
     "poster": "../assets/yt-HbtX0ODXCwY.webp",
     "duration": "4:00",
     "url": "https://www.youtube.com/watch?v=HbtX0ODXCwY"
+  },
+  {
+    "id": "IoFY0RWF0_M",
+    "slug": "sk-biopharm-full",
+    "title": "SK 바이오팜 / Full Ver.",
+    "displayTitle": "SK\nBiopharm",
+    "subtitle": "FULL VER. / SK BIOPHARMACEUTICALS",
+    "category": "COMMERCIAL / BRAND FILM",
+    "caption": "SK 바이오팜 · Full Ver.",
+    "summary": "STUDIO FREEWILLUSION 제작. 최민주가 AI Artist로 참여한 SK 바이오팜 브랜드 필름.",
+    "description": "스튜디오 프리윌루전에서 AI Artist로 참여한 SK 바이오팜 브랜드 필름 Full Ver..",
+    "role": "AI Artist",
+    "studio": "STUDIO FREEWILLUSION",
+    "client": "SK 바이오팜",
+    "director": "최서영",
+    "credit": "AI Artist · 최민주 / STUDIO FREEWILLUSION",
+    "fullCredits": "(주)스튜디오 프리윌루전\nAI 연출 : 최서영\nAI 수퍼바이저 : 이승훈\nE.PD : 김재헌\nPD : 정유진\nAI 아티스트 : 김진우, 김서우, 안중규, 이재성, 최민주, 송위종, 이가희\n2D 아티스트 : 이승훈, 전지오\nAI 플래너 : 박종혁, 임태균\n클라이언트 : SK 바이오팜",
+    "artWord": "Full Ver.",
+    "section": "commercial",
+    "poster": "../assets/yt-IoFY0RWF0_M.webp",
+    "duration": "7:22",
+    "url": "https://www.youtube.com/watch?v=IoFY0RWF0_M"
   }
 ];
