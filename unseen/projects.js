@@ -18,12 +18,12 @@ window.PROJECTS = [
     "credit": "Film by soE!",
     "laurels": [
       {
-        "name": "AIF 2026 · Official Selection",
+        "name": "AIF 2026 · 수상",
         "src": "../assets/laurels/aif.png",
         "tone": "white"
       },
       {
-        "name": "BIFAN 2026 · 부천 초이스 AI 영화",
+        "name": "BIFAN 2026 · 공식 상영작",
         "src": "../assets/laurels/bifan.svg",
         "tone": "white",
         "url": "https://www.bifan.kr/program/program_view.asp?actEvent=view&pk_seq=8281&sc_category_seq=9112&sc_num=1"
@@ -43,7 +43,17 @@ window.PROJECTS = [
       "project": "한국 오컬트 AI 단편 영화",
       "focus": "공포의 실체보다 군중의 시선과 왜곡된 믿음에 초점을 둔 서사",
       "role": "Filmmaker / soE!"
-    }
+    },
+    "recognition": [
+      {
+        "label": "AIF 2026",
+        "type": "AWARD / 수상"
+      },
+      {
+        "label": "BIFAN 2026",
+        "type": "OFFICIAL SCREENING / 공식 상영작"
+      }
+    ]
   },
   {
     "id": "A8DrBim2c1g",
@@ -64,7 +74,7 @@ window.PROJECTS = [
     "credit": "Film by soE!",
     "laurels": [
       {
-        "name": "OMNI 2026 · Official Selection",
+        "name": "OMNI 2026 · 수상",
         "src": "../assets/laurels/omni.png",
         "tone": "black"
       }
@@ -73,7 +83,13 @@ window.PROJECTS = [
       "project": "사후세계를 배경으로 한 판타지 애니메이션",
       "focus": "삶의 너머에서 울려오는 이야기를 영화적 이미지로 표현",
       "role": "Filmmaker / soE!"
-    }
+    },
+    "recognition": [
+      {
+        "label": "OMNI 2026",
+        "type": "AWARD / 수상"
+      }
+    ]
   },
   {
     "id": "DaDgfYiMp78",
