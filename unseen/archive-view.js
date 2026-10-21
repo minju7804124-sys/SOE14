@@ -10,7 +10,12 @@
  ['film','commercial'].map(section=>{
   const collection=projects.filter(p=>p.section===section);
   return '<div class="archive-group" id="scroll-'+section+'"><div class="archive-group-head"><h3>'+section.charAt(0).toUpperCase()+section.slice(1)+'</h3><span>'+String(collection.length).padStart(2,'0')+' WORKS / '+section.toUpperCase()+'</span></div><div class="archive-list">'+collection.map((p,i)=>{
-   const recognition=(p.recognition||[]).map(a=>'<span>'+esc2(a.label)+' · '+esc2(a.type)+'</span>').join('');
+   const laurels=(p.laurels||[]).map(l=>{
+    const img='<img loading="lazy" decoding="async" src="'+esc2(l.src)+'" class="'+(l.tone==='black'?'archive-laurel-invert':'')+'" alt="'+esc2(l.name)+'">';
+    return '<figure class="archive-laurel">'+(l.url?'<a href="'+esc2(l.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc2(l.name)+'">'+img+'</a>':img)+'</figure>';
+   }).join('');
+   const badges=(p.recognition||[]).map(a=>'<span>'+esc2(a.label)+' · '+esc2(a.type)+'</span>').join('');
+   const recognition=laurels?'<div class="archive-laurels" aria-label="영화제 월계관">'+laurels+'</div>'+badges:badges;
    return '<article class="archive-item"><a class="archive-photo" href="'+esc2(p.url||'#')+'" '+(p.url?'target="_blank" rel="noopener noreferrer"':'aria-disabled="true"')+'><img loading="lazy" src="'+esc2(p.poster)+'" alt="'+esc2(p.title)+' 작품 이미지"><span class="number">'+String(i+1).padStart(2,'0')+' / '+String(collection.length).padStart(2,'0')+'</span></a><div class="archive-details"><h4>'+esc2(p.title)+'</h4><span>'+esc2(p.duration)+'</span></div><div class="archive-recognition">'+recognition+'</div><p class="archive-description">'+esc2(p.summary||p.caption)+'</p><div class="archive-actions">'+(p.url?'<a href="'+esc2(p.url)+'" target="_blank" rel="noopener noreferrer">WATCH FILM ↗</a>':'')+'<button type="button" data-view-project="'+esc2(p.slug)+'">CINEMATIC VIEW ↗</button></div></article>';
   }).join('')+'</div></div>';
  }).join('');
