@@ -152,3 +152,19 @@ body.home-view #screen{overflow:visible;filter:drop-shadow(0 0 30px rgba(185,199
  body.scroll-view .archive-description{margin-bottom:10px}
 }
 @media(prefers-reduced-motion:reduce){html:has(body.scroll-view){scroll-snap-type:none}}
+
+
+/* v4: scroll archive festival laurels. Reuses each film's existing real logo files. */
+body.scroll-view .archive-recognition:has(.archive-laurels){align-items:center;align-content:flex-start;gap:9px}
+body.scroll-view .archive-laurels{display:flex;align-items:center;gap:13px;flex-wrap:wrap;flex:0 0 100%;width:100%;margin:0 0 5px}
+body.scroll-view .archive-laurel{margin:0;flex:0 0 67px;width:67px;max-width:calc(25% - 10px)}
+body.scroll-view .archive-laurel>a{display:block;max-width:100%}
+body.scroll-view .archive-laurel img{display:block;width:100%;height:62px;object-fit:contain;filter:brightness(0) invert(1);transition:opacity .2s,transform .2s}
+body.scroll-view .archive-laurel img.archive-laurel-invert{filter:grayscale(1) invert(1)}
+body.scroll-view .archive-laurel a:hover img{opacity:.78;transform:translateY(-2px)}
+@media(max-width:760px){
+ body.scroll-view .archive-laurels{gap:10px;margin-bottom:2px}
+ body.scroll-view .archive-laurel{flex-basis:57px;width:57px;max-width:calc(25% - 8px)}
+ body.scroll-view .archive-laurel img{height:47px}
+ body.scroll-view .archive-recognition:has(.archive-laurels){margin-bottom:10px}
+}
