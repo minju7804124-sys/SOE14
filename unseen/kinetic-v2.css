@@ -1,0 +1,179 @@
+/* soE! / KINETIC EDITORIAL V2 : layered over legacy styles */
+:root{--kinetic-ice:#d4efee;--kinetic-violet:#a7a0dc;--kinetic-line:rgba(224,231,236,.18)}
+html{scroll-behavior:smooth}
+body{background:#08090b}
+body::after{opacity:.052}
+header,.home-view header{background:rgba(8,9,12,.88)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.logo{position:relative;z-index:30}
+.logo:hover{color:#fff;text-shadow:-2px 0 #a6bff899,2px 0 #c3acc599}
+.section-nav button,.utility-nav button{transition:color .22s,opacity .22s}
+.section-nav button:hover,.utility-nav button:hover{color:#e8f4f5!important}
+.view-switch{top:76px!important;right:var(--gutter)!important;background:rgba(9,11,16,.75)!important;border:1px solid rgba(232,240,246,.20)!important;border-radius:0!important;box-shadow:none!important}
+.view-switch button{font-size:9px!important;letter-spacing:.1em!important}
+.view-switch button[aria-pressed=true]{background:#dee8e8!important;color:#08090c!important}
+
+/* HERO: free the home image from the buried negative stacking context. */
+.home-view main{position:relative;isolation:isolate;min-height:100svh;background:radial-gradient(ellipse at 69% 39%,#1b1b2a 0%,#0f1218 37%,#08090b 72%)!important}
+.home-view .scene-backdrop{background:radial-gradient(ellipse at 70% 41%,rgba(108,115,179,.12),transparent 56%)!important}
+.home-view .media-column{z-index:0!important;isolation:auto!important;pointer-events:none!important}
+.home-view .screen{background:transparent!important;pointer-events:none!important;filter:none!important}
+.home-view .screen #poster{opacity:.23!important;filter:brightness(.55) blur(30px) saturate(.72)!important;object-position:67% 48%!important}
+.home-view .screen canvas{opacity:.09!important;filter:blur(23px)!important}
+.home-view .screen .signal-fallback{opacity:0!important}
+.home-view .screen .vignette{background:linear-gradient(90deg,#08090b 0%,transparent 79%),linear-gradient(0deg,#08090b 4%,transparent 40%,#08090b44 100%)!important}
+.home-view .screen .scanlines{opacity:.045!important}
+.home-view .work-layout{position:static!important;z-index:auto!important}
+.home-view .project-heading{z-index:6!important}
+.home-view #title{position:relative;z-index:6;color:#efefee!important;font-weight:800!important;text-shadow:0 12px 50px rgba(0,0,0,.5)!important;max-width:max-content}
+.home-view .project-caption{position:relative;z-index:8}
+.home-view .home-lower{position:relative;z-index:7}
+.home-view .home-sections{z-index:8!important;position:relative}
+.home-view .home-sections button{border-color:rgba(234,241,245,.24)!important;transition:padding .35s ease,border-color .35s,transform .35s!important}
+.home-view .home-sections button:hover{padding-left:13px;border-color:var(--kinetic-ice)!important}
+.home-view .home-word em{color:#cddade!important}
+.home-view .home-word{font-weight:600!important}
+.home-view .reality-control{z-index:10}
+.home-view .stage-top{z-index:10}
+
+/* THE SOE BUTTERFLY: an original luminous vector emblem, not a stock card. */
+.soe-butterfly-stage{display:none;position:absolute;z-index:2;right:1%;top:10%;width:min(64vw,1120px);height:min(74svh,840px);pointer-events:none;align-items:center;justify-content:center;transform:translate3d(var(--butterfly-x,0px),var(--butterfly-y,0px),0);transition:transform .7s cubic-bezier(.15,.8,.15,1);overflow:visible}
+.home-view .soe-butterfly-stage{display:flex}
+.soe-butterfly-stage::before{content:'';position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(ellipse,rgba(119,139,188,.22),rgba(110,89,170,.075) 45%,transparent 69%);filter:blur(34px);animation:soe-aura 8s ease-in-out infinite alternate}
+.soe-butterfly-stage::after{content:'SIGNAL / 01   ∴   ANOTHER REALITY';position:absolute;right:7%;bottom:10%;font:9px "JetBrains Mono",monospace;letter-spacing:.22em;color:rgba(209,225,231,.48);writing-mode:vertical-rl}
+.soe-butterfly-svg{width:100%;height:100%;max-height:800px;overflow:visible;filter:drop-shadow(0 0 35px rgba(145,177,228,.24));animation:soe-hover 7s ease-in-out infinite}
+.soe-butterfly-svg .soe-wing-left,.soe-butterfly-svg .soe-wing-right{transform-box:view-box;transform-origin:50% 47%;animation:soe-wings 5s ease-in-out infinite alternate}
+.soe-butterfly-svg .soe-wing-right{animation-delay:-2.5s}
+.soe-butterfly-svg .soe-glow-line{filter:url(#soeGlow)}
+.soe-butterfly-svg .soe-spark{animation:soe-spark 4s ease-in-out infinite alternate}
+.soe-butterfly-svg .soe-spark:nth-child(even){animation-delay:-1.7s}
+.soe-butterfly-caption{position:absolute;left:24%;bottom:5%;display:flex;gap:12px;align-items:center;font:9px "JetBrains Mono",monospace;letter-spacing:.14em;color:rgba(213,224,238,.65)}
+.soe-butterfly-caption::before{content:'';width:55px;height:1px;background:linear-gradient(90deg,transparent,#a5c3ef88)}
+@keyframes soe-hover{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(.6deg)}}
+@keyframes soe-wings{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.965)}}
+@keyframes soe-aura{from{opacity:.6;transform:scale(.94)}to{opacity:1;transform:scale(1.12)}}
+@keyframes soe-spark{from{opacity:.22;transform:translateY(0)}to{opacity:1;transform:translateY(-8px)}}
+
+/* Homepage has recognitions in the hierarchy, never buried in metadata. */
+.soe-award-feature{position:relative;z-index:12;margin:clamp(55px,6vw,115px) 0 42px;border-top:1px solid rgba(245,245,249,.33);padding-top:26px}
+.soe-award-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:25px;align-items:end;margin-bottom:28px}
+.soe-award-intro p{color:#a3a6af;font:10px "JetBrains Mono",monospace;letter-spacing:.17em;margin:0 0 12px}
+.soe-award-intro h2{margin:0;font:700 clamp(38px,5.3vw,92px)/.92 Inter,Arial,sans-serif;letter-spacing:-.09em}
+.soe-award-intro h2 em{font-style:normal;color:#9fa7b9}
+.soe-award-intro .soe-award-aside{font-size:12px;line-height:1.7;justify-self:end;max-width:260px;color:#abb0b8;letter-spacing:0}
+.soe-award-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
+.soe-award-card{position:relative;min-height:166px;padding:19px 26px 20px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:22px;overflow:hidden;transition:background .3s ease}
+.soe-award-card+.soe-award-card{border-left:1px solid rgba(255,255,255,.15)}
+.soe-award-card::before{content:'';position:absolute;inset:0;background:linear-gradient(124deg,rgba(168,185,224,.10),transparent 68%);transform:translateX(-105%);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.soe-award-card:hover::before{transform:translateX(0)}
+.soe-award-card::after{content:'↗';position:absolute;right:20px;top:17px;font:23px Inter,sans-serif;color:#d3e6e9;transition:transform .25s}
+.soe-award-card:hover::after{transform:translate(4px,-4px)}
+.soe-award-card .soe-award-type{position:relative;color:#b6c2d1;font:9px "JetBrains Mono",monospace;letter-spacing:.14em;line-height:1.6}
+.soe-award-card strong{position:relative;display:block;font:650 clamp(21px,2.3vw,34px)/1.05 Inter,Arial,sans-serif;letter-spacing:-.07em}
+.soe-award-card small{position:relative;color:#acb0b9;font:9px "JetBrains Mono",monospace;margin-top:10px;display:block}
+.soe-award-card.is-award{background:rgba(115,133,169,.075)}
+.soe-award-grid img{position:absolute;right:45px;bottom:15px;width:70px;height:55px;object-fit:contain;opacity:.28;filter:brightness(0) invert(1)}
+.soe-award-card:hover img{opacity:.5}
+
+/* In the editorial scroll layout, remove the fake image placeholder boxes. */
+html:has(body.scroll-view){scroll-snap-type:y proximity!important}
+body.scroll-view .archive-item::before{display:none!important;content:none!important}
+body.scroll-view .archive-item{height:auto!important;min-height:89svh!important;padding:clamp(100px,10vh,145px) 0 75px!important;grid-template-columns:minmax(0,1.24fr) minmax(300px,.68fr)!important;column-gap:clamp(25px,3.8vw,92px)!important;align-content:center!important;overflow:hidden;isolation:isolate}
+body.scroll-view .archive-item::after{content:attr(data-issue);position:absolute;z-index:-1;right:0;bottom:0;font:800 clamp(170px,26vw,450px)/.75 Inter,Arial,sans-serif;letter-spacing:-.13em;color:transparent;-webkit-text-stroke:1px rgba(220,235,245,.075);pointer-events:none}
+body.scroll-view .archive-item .archive-photo{width:100%!important;max-width:100%!important;height:min(66svh,660px)!important;max-height:none;grid-column:1;grid-row:1 / span 4;align-self:center;position:relative;box-shadow:0 34px 85px rgba(0,0,0,.30)!important;outline:1px solid rgba(246,247,247,.08);outline-offset:-1px;border:0!important;overflow:hidden}
+body.scroll-view .archive-item .archive-photo img{object-fit:cover!important;transform:scale(1.03);filter:saturate(.84) brightness(.91)!important;transition:transform 1.1s cubic-bezier(.16,1,.3,1),filter .8s!important}
+body.scroll-view .archive-item .archive-photo:hover img{transform:scale(1.095) translateX(1%);filter:saturate(1) brightness(1)!important}
+body.scroll-view .archive-item .archive-photo::before{content:'';position:absolute;z-index:1;inset:0;background:linear-gradient(145deg,transparent 53%,rgba(0,0,0,.35));pointer-events:none}
+body.scroll-view .archive-item .archive-photo::after{content:'↗'!important;font:36px Inter,sans-serif!important;right:24px!important;top:22px!important;z-index:3;filter:drop-shadow(0 3px 9px #0008)}
+body.scroll-view .archive-item .archive-details,
+body.scroll-view .archive-item .archive-recognition,
+body.scroll-view .archive-item .archive-description,
+body.scroll-view .archive-item .archive-actions{grid-column:2!important;padding-inline:0!important;position:relative;z-index:3}
+body.scroll-view .archive-details{align-self:end!important;margin:0 0 25px!important}
+body.scroll-view .archive-details h4{font-size:clamp(45px,5.4vw,100px)!important;line-height:.89!important;letter-spacing:-.087em!important;position:relative}
+body.scroll-view .archive-details>span{font-size:10px!important;letter-spacing:.08em!important;margin-top:18px}
+body.scroll-view .archive-description{font-size:13px!important;color:#bdc1c8!important;line-height:1.8!important;margin-bottom:30px!important}
+body.scroll-view .archive-actions a,body.scroll-view .archive-actions button{font-size:10px!important;letter-spacing:.06em!important;color:#e6eef3!important;border-color:#ffffff64!important;transition:padding .25s}
+body.scroll-view .archive-actions :is(a,button):hover{padding-left:8px!important}
+body.scroll-view .archive-recognition{display:flex;gap:8px 9px!important;flex-wrap:wrap;margin:0 0 21px!important}
+body.scroll-view .archive-recognition span{background:rgba(165,188,215,.11)!important;border:1px solid rgba(195,220,239,.4)!important;color:#e5f0f5!important;padding:9px 11px!important;font-size:10px!important}
+body.scroll-view .archive-laurels{padding:15px 0 12px;border-top:1px solid rgba(216,232,241,.17);border-bottom:1px solid rgba(216,232,241,.17);gap:16px!important;margin:0 0 7px!important}
+body.scroll-view .archive-laurel{flex-basis:80px!important;width:80px!important;max-width:calc(25% - 12px)!important}
+body.scroll-view .archive-laurel img{width:100%;height:78px!important;opacity:.85;object-fit:contain}
+body.scroll-view .archive-item:nth-child(even){grid-template-columns:minmax(290px,.68fr) minmax(0,1.24fr)!important}
+body.scroll-view .archive-item:nth-child(even) .archive-photo{grid-column:2!important;transform:translateY(3vh)}
+body.scroll-view .archive-item:nth-child(even) .archive-details,
+body.scroll-view .archive-item:nth-child(even) .archive-recognition,
+body.scroll-view .archive-item:nth-child(even) .archive-description,
+body.scroll-view .archive-item:nth-child(even) .archive-actions{grid-column:1!important}
+body.scroll-view .archive-item:nth-child(even)::after{right:auto;left:1%;bottom:5%}
+body.scroll-view .archive-item.is-awarded .archive-photo{outline:1px solid rgba(220,236,248,.29)!important}
+body.scroll-view .archive-item.is-awarded .archive-details::before{content:'✳   FESTIVAL RECOGNIZED';display:block;margin:0 0 22px;color:#d5dfe8;font:10px "JetBrains Mono",monospace;letter-spacing:.15em}
+body.scroll-view .archive-intro{margin-top:15px!important;padding:50px 0 18px!important}
+body.scroll-view .archive-intro h2{font-weight:750!important}
+body.scroll-view .archive-group-head{padding:30px 0 20px!important}
+body.scroll-view .archive-group-head h3{font-weight:700!important}
+.scene-recognition{z-index:22!important}
+body:not(.home-view):not(.scroll-view) .scene-recognition span{font-size:11px;padding:12px 17px;border-color:rgba(223,238,242,.65);background:rgba(17,20,26,.9)}
+body:not(.home-view) .awards-row{border-top:1px solid rgba(255,255,255,.22);padding-top:15px}
+body:not(.home-view) .laurel-image{height:85px!important}
+body:not(.home-view) .awards-label{font-size:9px!important;color:#cad2dc}
+body:not(.home-view) #title{letter-spacing:-.082em!important}
+
+/* restrained interaction that responds to the scroll direction, not random spectacle */
+.reveal-on-scroll{opacity:1;transform:none}
+.motion-ready .reveal-on-scroll{opacity:0;transform:translate3d(0,42px,0);transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+.motion-ready .reveal-on-scroll.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.motion-ready .archive-item.reveal-on-scroll .archive-photo{clip-path:inset(0 0 0 4%)}
+.motion-ready .archive-item.reveal-on-scroll.is-visible .archive-photo{clip-path:inset(0);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+
+@media(max-width:1100px){
+ .soe-butterfly-stage{right:-10%;top:15%;width:73vw;height:67svh;opacity:.83}
+ body.scroll-view .archive-item{grid-template-columns:minmax(0,1.12fr) minmax(260px,.69fr)!important;column-gap:28px!important}
+ body.scroll-view .archive-item:nth-child(even){grid-template-columns:minmax(260px,.69fr) minmax(0,1.12fr)!important}
+ body.scroll-view .archive-details h4{font-size:clamp(38px,5.2vw,72px)!important}
+}
+@media(max-width:760px){
+ .view-switch{top:69px!important;right:16px!important}
+ .view-switch button{font-size:8px!important;padding:9px 8px!important}
+ .home-view main{overflow:hidden!important;background:radial-gradient(ellipse at 66% 35%,#1a1c2b 0%,#0e1117 38%,#08090b 77%)!important;padding-top:143px!important}
+ .home-view #title{font-size:clamp(135px,48vw,320px)!important;letter-spacing:-.14em!important}
+ .soe-butterfly-stage{right:-21%;top:24%;width:123vw;height:43svh;opacity:.9}
+ .soe-butterfly-svg{max-height:420px}
+ .soe-butterfly-stage::after{display:none}
+ .soe-butterfly-caption{left:29%;bottom:-2%;font-size:7px}
+ .home-view .project-caption{margin-top:clamp(90px,20svh,190px)!important}
+ .home-view .home-lower{margin-top:29px!important}
+ .home-view .home-word{font-size:clamp(32px,9.5vw,60px)!important}
+ .home-view .home-sections{margin-top:34px!important}
+ .soe-award-feature{margin-top:66px}
+ .soe-award-intro{grid-template-columns:1fr;gap:10px;margin-bottom:20px}
+ .soe-award-intro h2{font-size:clamp(45px,12vw,72px)}
+ .soe-award-intro .soe-award-aside{justify-self:start;max-width:270px;font-size:11px}
+ .soe-award-grid{grid-template-columns:1fr;border-bottom:0}
+ .soe-award-card{min-height:100px;padding:19px 12px 18px;border-left:0!important;border-bottom:1px solid rgba(255,255,255,.18)!important;gap:12px}
+ .soe-award-card strong{font-size:25px}
+ .soe-award-grid img{bottom:15px;height:55px;width:72px}
+ body.scroll-view .scroll-archive{padding:0 20px!important}
+ body.scroll-view .archive-item,body.scroll-view .archive-item:nth-child(even){min-height:0!important;height:auto!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:90px 0 45px!important;gap:0!important}
+ body.scroll-view .archive-item::after{display:none!important}
+ body.scroll-view .archive-item .archive-photo,body.scroll-view .archive-item:nth-child(even) .archive-photo{width:100%!important;height:clamp(220px,43svh,440px)!important;min-height:0!important;transform:none!important;order:0;flex-shrink:0}
+ body.scroll-view .archive-item .archive-details,body.scroll-view .archive-item:nth-child(even) .archive-details{order:1;margin:23px 0 15px!important}
+ body.scroll-view .archive-item .archive-recognition,body.scroll-view .archive-item:nth-child(even) .archive-recognition{order:2;margin:0 0 17px!important}
+ body.scroll-view .archive-item .archive-description,body.scroll-view .archive-item:nth-child(even) .archive-description{order:3;margin:0 0 20px!important;font-size:12px!important}
+ body.scroll-view .archive-item .archive-actions,body.scroll-view .archive-item:nth-child(even) .archive-actions{order:4}
+ body.scroll-view .archive-details h4{font-size:clamp(37px,10vw,63px)!important;line-height:.96!important}
+ body.scroll-view .archive-item.is-awarded .archive-details::before{margin-bottom:12px}
+ body.scroll-view .archive-laurel{flex-basis:66px!important;width:66px!important}
+ body.scroll-view .archive-laurel img{height:64px!important}
+ body.scroll-view .archive-group-head{padding:23px 0 14px!important}
+ body.scroll-view .archive-intro{padding-top:28px!important}
+ body:not(.home-view) .laurel-image{height:58px!important}
+ .motion-ready .reveal-on-scroll{transform:translateY(24px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .soe-butterfly-svg,.soe-butterfly-stage::before,.soe-butterfly-svg .soe-wing-left,.soe-butterfly-svg .soe-wing-right,.soe-butterfly-svg .soe-spark{animation:none!important}
+ .soe-butterfly-stage{transform:none!important;transition:none!important}
+ .motion-ready .reveal-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
+ .motion-ready .archive-item.reveal-on-scroll .archive-photo{clip-path:inset(0)!important}
+}
+body.no-fx .soe-butterfly-svg,body.no-fx .soe-butterfly-stage::before,body.no-fx .soe-butterfly-svg .soe-wing-left,body.no-fx .soe-butterfly-svg .soe-wing-right,body.no-fx .soe-spark{animation-play-state:paused!important}
